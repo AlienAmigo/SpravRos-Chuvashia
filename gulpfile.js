@@ -69,19 +69,19 @@ function compileStyles() {
 exports.compileStyles = compileStyles;
 
 function processJs() {
-  return src(dir.src + 'js/script.js')
-    .pipe(plumber({
-      errorHandler: function (err) {
-        console.log(err.message);
-        this.emit('end');
-      }
-    }))
-    .pipe(babel({
-        presets: ['@babel/env']
-    }))
-    .pipe(uglify())
-    .pipe(concat('script.min.js'))
-    .pipe(dest(dir.build + 'js/'))
+  // return src(dir.src + 'js/script.js')
+  //   .pipe(plumber({
+  //     errorHandler: function (err) {
+  //       console.log(err.message);
+  //       this.emit('end');
+  //     }
+  //   }))
+  //   .pipe(babel({
+  //       presets: ['@babel/env']
+  //   }))
+  //   .pipe(uglify())
+  //   .pipe(concat('script.min.js'))
+  //   .pipe(dest(dir.build + 'js/'))
 }
 exports.processJs = processJs;
 
@@ -125,17 +125,17 @@ function serve() {
     dir.src + 'pages/*.pug',
     dir.src + 'pug/*.pug',
   ], compilePug);
-  watch(dir.src + 'js/*.js', processJs);
+  // watch(dir.src + 'js/*.js', processJs);
   watch(dir.src + 'img/**/*.{jpg,jpeg,png,svg,webp,gif}', copyImages);
   watch([
     dir.build + '*.html',
-    dir.build + 'js/*.js',
+    // dir.build + 'js/*.js',
     dir.build + 'img/**/*.{jpg,jpeg,png,svg,webp,gif}',
   ]).on('change', browserSync.reload);
 }
 
 exports.default = series(
   clean,
-  parallel(compileStyles, compilePug, processJs, copyJsVendors, copyImages, copyFonts),
+  parallel(compileStyles, compilePug, /* processJs, */copyJsVendors, copyImages, copyFonts),
   serve
 );
