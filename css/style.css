@@ -158,10 +158,10 @@ body {
 
 .page__region {
   position: absolute;
-  bottom: -37px;
+  bottom: -34px;
   left: 22px;
   width: 600px;
-  font-size: 38px;
+  font-size: 34px;
   font-family: 'Montserrat Black', sans-serif;
   text-transform: uppercase;
   -webkit-transform-origin: left top;
@@ -212,9 +212,9 @@ body {
     .page__sr-logo img {
       height: 69px; }
   .page__region {
-    bottom: -20px;
+    bottom: -17px;
     left: 12px;
     width: 400px;
-    font-size: 22px; } }
+    font-size: 19px; } }
 
 /*# sourceMappingURL=style.css.map */
